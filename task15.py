@@ -9,14 +9,14 @@ max_deductible_nssf = 18000
 nssf = min(grosss_salary * nssf_rate, max_deductible_nssf)
 
 taxable_income = grosss_salary - nssf
-if taxable_income <= 24000:
+
+        paye = 2400 + 0.25 * (taxable_income - 24000)
+    else:if taxable_income <= 24000:
     paye = 0.1 * taxable_income
 if taxable_income > 32333:
     paye = 0.3 *(taxable_income - 32333)
 else:
     if taxable_income <= 32333:
-        paye = 2400 + 0.25 * (taxable_income - 24000)
-    else:
         paye = 0.3 * (taxable_income - 32333) +2400
 
 if grosss_salary < 5999:
