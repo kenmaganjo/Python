@@ -61,27 +61,31 @@ def calculate_nhif(grosss_salary):
     return nhif
 
 def calculate_taxable_income(grosss_salary):
+    taxable_income = 0
     taxable_income = grosss_salary - nssf
 
     return taxable_income
 
 def calculate_paye(grosss_salary):
+    paye = 0
     
     if taxable_income <= 24000:
         paye = 0.1 * taxable_income
     else:
-        if taxable_income < 32333:
+        if taxable_income <= 32333:
             paye = (0.25 * (taxable_income - 24000)) + 2400
         else:
-            paye = (0.3 * (taxable_income - 32333)) + 2400
+            paye = (0.3 * (taxable_income - 32333)) + 4483.25
     
 
-    return paye   
+    return paye
+
+def calculate_net_salary(grosss_salary):
+    net_salary = grosss_salary - (nhif + nssf + paye)
+
+    return net_salary
+
             
-
-
-
-                                                        
 
 salary = float(input("Enter salary: "))
 benefits = float(input("Enter benefits: "))
@@ -91,30 +95,17 @@ nssf = calculate_nssf(gs)
 nhif = calculate_nhif(gs)
 taxable_income = calculate_taxable_income(gs)
 paye = calculate_paye(gs)
+net_salary = calculate_net_salary(gs)
 
 
 print("NHIF =", nhif)
 print("NSSF =", nssf)
 print("Taxable Income =", taxable_income)
 print("PAYE =", paye)
+print("Net Salary =", net_salary)
 
-        # ans:
-        #     Enter salary: 4560.55
-        #     Enter benefits: 240.20
-        #     NSSF = 288.045
 
-        #     Enter salary: 540000
-        #     Enter benefits: 15000
-        #     NSSF = 18000 
 
-#1. Variables - strings
-#2. Data structures - lists
-#3. Operators - boolean
-#4. Conditional - if, elif, else
-#5. Loops - For
-#6. Functions
-#Classes and objects
-#Pseudo code
 
 
 
