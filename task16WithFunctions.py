@@ -1,5 +1,7 @@
 def calculate_grosss_salary(s, b):
     grosss_salary = s + b
+    grosss_salary = round(grosss_salary,2)
+    
     return grosss_salary
 
 def calculate_nssf(grosss_salary):
@@ -7,11 +9,13 @@ def calculate_nssf(grosss_salary):
     nssf_rate = 0.06 
     max_deductible_nssf = 18000
     nssf = min((grosss_salary * nssf_rate), max_deductible_nssf)
+    nssf = round(nssf,2)
 
     return nssf
 
 def calculate_nhif(grosss_salary):
     nhif = 0
+    nhif = round(nhif,2)
     if grosss_salary < 5999:
         nhif = 150
     else:
@@ -58,11 +62,13 @@ def calculate_nhif(grosss_salary):
                                                                 nhif = 1600
                                                             else:
                                                                 nhif = 1700
+                                                                  
     return nhif
 
 def calculate_taxable_income(grosss_salary):
     taxable_income = 0
     taxable_income = grosss_salary - nssf
+    taxable_income = round(taxable_income, 2)
 
     return taxable_income
 
@@ -76,12 +82,14 @@ def calculate_paye(grosss_salary):
             paye = (0.25 * (taxable_income - 24000)) + 2400
         else:
             paye = (0.3 * (taxable_income - 32333)) + 4483.25
-    
 
+    paye = round(paye, 2)
+    
     return paye
 
 def calculate_net_salary(grosss_salary):
     net_salary = grosss_salary - (nhif + nssf + paye)
+    net_salary = round(net_salary, 2)
 
     return net_salary
 
