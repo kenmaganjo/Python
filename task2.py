@@ -9,4 +9,6 @@ def even_or_odd():
 num = int(input("Enter a number: "))
 number = even_or_odd()
 
+
+
 print(number)
