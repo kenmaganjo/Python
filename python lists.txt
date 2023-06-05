@@ -1,0 +1,31 @@
+1. A program to check wheteher the given word is vowel or not
+
+val = input("enter a character: ")
+list = ['a','e','i','o','u']
+
+if val in list:
+    	print("is a vowel")
+else:
+    print("not a vowel")
+
+2. A program to return multiple of 7 within a given range 1,30.
+
+for i in range(1,30):
+    if i % 7 == 0:
+        print(i)
+
+3. A program to count the occurence of even number and odd number between the range 10 – 55.
+
+even_count = 0
+odd_count = 0
+for i in range(10,55):
+    if i%2 == 0:
+        even_count += 1
+    else:
+        odd_count += 1
+print("Even number counts is:", even_count)
+print("Odd number counts is:", odd_count)
+
+4. 
+    
+     
